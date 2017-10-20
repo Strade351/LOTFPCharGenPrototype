@@ -1,4 +1,6 @@
 
+import org.w3c.dom.Attr;
+
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -11,8 +13,10 @@ public class Character {
 
     Classes classes;
 
-    int cha, str, dex, con, wis, intel;
 
+
+
+    private Attributes attributes;
 
     private String sex;
 
@@ -31,16 +35,12 @@ public class Character {
 
     }
 
-    public int getAttribute(String name) {
-        switch (name) {
-            case "cha" : return cha;
-            case "str" : return str;
-            case "int" : return intel;
-            case "wis" : return wis;
-            case "dex" : return dex;
-            case "con" : return con;
-            default: return Integer.parseInt(null);
-        }
+    public Attributes getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(Attributes attributes) {
+        this.attributes = attributes;
     }
 
     public Classes getClasses() {

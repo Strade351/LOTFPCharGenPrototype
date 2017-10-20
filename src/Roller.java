@@ -12,10 +12,9 @@ public class Roller {
 
     Roller(Character character) {
         this.character = character;
-        this.setClass();
     }
 
-    private Classes rollClass() {
+    private Classes setClass() {
         switch (r.nextInt(7)) {
             case 0 : return Classes.WARRIOR;
             case 1 : return Classes.MAGICUSER;
@@ -28,19 +27,18 @@ public class Roller {
         }
     }
 
-    public void setClass() {
-        this.character.classes = rollClass();
+    public void rollClass() {
+        this.character.classes = setClass();
     }
 
     public void rollAttributes() {
-        this.character.cha = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        this.character.wis = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        this.character.str = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        this.character.intel = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        this.character.dex = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        this.character.con = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().strength.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().dexterity.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().constitution.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().intelligence.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().wisdom.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        character.getAttributes().charisma.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
     }
-
 
     public void rollSex() {
         if (r.nextInt(1) == 1) {
@@ -52,10 +50,32 @@ public class Roller {
 
     public void rollHP() {
         switch (character.classes) {
-            case WARRIOR: character.setHp(dice.rollD8());             //Не доделано
+            case WARRIOR: {
+                if ((dice.rollD8() + character.getAttributes().constitution.getModifier()) > 8) {
+                    character.setHp(dice.rollD8() + character.getAttributes().constitution.getModifier());
+                }
+                else character.setHp(8);
+            }
+            case ELF: {
+                if ((dice.rollD6() + character.getAttributes().constitution.getModifier()) > 4) {
+                    character.setHp(dice.rollD6()+ character.getAttributes().constitution.getModifier());
+                }
+                else character.setHp(4);
+            }
+            case DWARF: {
+                if ((dice.rollD8() + character.getAttributes().constitution.getModifier() > 6)) {
+                    character.setHp(dice.rollD8()+ character.getAttributes().constitution.getModifier());
+                }
+                else character.setHp(6);
+            }
+            case CLIRIC: {
+                if (dice.rollD6()+ character.getAttributes().constitution.getModifier() > 4) {
+
+                }
+                else character.setHp(4);
+            }
         }
     }
-
 
     public Character getCharacter() {
         return this.character;
