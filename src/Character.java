@@ -13,6 +13,8 @@ public class Character {
 
     Classes classes;
 
+    String pClass;
+
     Attributes attributes;
 
     private String sex;
@@ -24,15 +26,15 @@ public class Character {
 
     private ArrayList spells;
 
-    private int poisonsave, mdsave, paralsave, bwsave, magicsave;
+
+
+    private Saves saves;
 
     private int silver;
 
     Character() {
 
     }
-
-
 
     public Attributes getAttributes() {
         return attributes;
@@ -60,6 +62,14 @@ public class Character {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Saves getSaves() {
+        return saves;
+    }
+
+    public void setSaves(Saves saves) {
+        this.saves = saves;
     }
 
     public int getHp() {
@@ -94,46 +104,6 @@ public class Character {
         this.rangedbonus = rangedbonus;
     }
 
-    public int getPoisonsave() {
-        return poisonsave;
-    }
-
-    public void setPoisonsave(int poisonsave) {
-        this.poisonsave = poisonsave;
-    }
-
-    public int getMdsave() {
-        return mdsave;
-    }
-
-    public void setMdsave(int mdsave) {
-        this.mdsave = mdsave;
-    }
-
-    public int getParalsave() {
-        return paralsave;
-    }
-
-    public void setParalsave(int paralsave) {
-        this.paralsave = paralsave;
-    }
-
-    public int getBwsave() {
-        return bwsave;
-    }
-
-    public void setBwsave(int bwsave) {
-        this.bwsave = bwsave;
-    }
-
-    public int getMagicsave() {
-        return magicsave;
-    }
-
-    public void setMagicsave(int magicsave) {
-        this.magicsave = magicsave;
-    }
-
     public int getSilver() {
         return silver;
     }
@@ -144,7 +114,7 @@ public class Character {
 
     @Override
     public String toString() {
-        String result =  this.classes.toString() + "\n" + this.attributes.toString() + "\n HP: " + this.hp;
+        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp;
         return result;
     }
 }

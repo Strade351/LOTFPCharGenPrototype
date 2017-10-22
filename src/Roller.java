@@ -27,11 +27,17 @@ public class Roller {
         }
     }
 
-    public void rollClass() {
-        character.classes = setClass();
+    private void setSaves() {
+
     }
 
-    public void rollAttributes() {
+    public void rollClass() {
+        character.pClass = setClass().toString();
+        character.classes = setClass();
+        character.attributes = rollAttributes();
+    }
+
+    public Attributes rollAttributes() {
         Attributes attributes = new Attributes();
         attributes.strength.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
         attributes.dexterity.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
@@ -41,9 +47,9 @@ public class Roller {
         attributes.charisma.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
         attributes.createModifiers();
         if (attributes.modifiersSum() >= 0) {
-            character.setAttributes(attributes);
+            return attributes;
         }
-        else rollAttributes();
+        return rollAttributes();
     }
 
     public void rollSex() {
@@ -55,49 +61,52 @@ public class Roller {
     }
 
     public void rollHP() {
-        switch (character.classes) {
-            case WARRIOR: {
+        switch (character.pClass) {
+            case "Fighter": {
                 int result = dice.rollD8() + character.getAttributes().constitution.getModifier();
                 if (result > 8) {
                     character.setHp(result);
                 } else character.setHp(8);
-            }
-            case ELF: {
+
+            } break;
+            case "Elf": {
                 int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
                 if (result > 4) {
                     character.setHp(result);
                 } else character.setHp(4);
-            }
-            case DWARF: {
+
+            } break;
+            case "Dwarf": {
                 int result = dice.rollD8() + character.getAttributes().constitution.getModifier();
                 if (result > 6) {
                     character.setHp(result);
                 } else character.setHp(6);
-            }
-            case CLIRIC: {
+            } break;
+            case "Cliric": {
                 int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
                 if (result > 4) {
                     character.setHp(result);
                 } else character.setHp(4);
-            }
-            case HAFFLING: {
+            } break;
+            case "Halfling": {
                 int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
                 if (result > 4) {
                     character.setHp(result);
                 } else character.setHp(4);
-            }
-            case MAGICUSER: {
+            } break;
+
+            case "Magic-User": {
                 int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
                 if (result > 3) {
                     character.setHp(result);
                 } else character.setHp(3);
-            }
-            case SPECIALIST: {
+            } break;
+            case "Specialist": {
                 int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
                 if (result > 4) {
                     character.setHp(result);
                 } else character.setHp(4);
-            }
+            } break;
         }
 
     }
