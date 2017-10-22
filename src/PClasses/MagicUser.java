@@ -1,0 +1,7 @@
+package PClasses;
+
+/**
+ * Created by Anatoliy on 23.10.2017.
+ */
+public class MagicUser extends PClass {
+}

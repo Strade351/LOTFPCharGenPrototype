@@ -27,7 +27,7 @@ public class Roller {
         }
     }
 
-    private Saves setSaves() {
+    private void setSaves() {
         Saves saves = new Saves();
         switch (character.pClass) {
             case ("Fighter") : {
