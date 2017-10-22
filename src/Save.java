@@ -10,6 +10,10 @@ public class Save {
         this.name = name;
     }
 
+    Save(String name, int count) {
+        this.name = name;
+    }
+
     public int getCount() {
         return count;
     }

@@ -7,7 +7,6 @@ public class Saves implements List {
     ArrayList<Save> saves;
 
     Saves() {
-        saves.add(new Save("poison"));
         saves.add(new Save("magic device"));
         saves.add(new Save("paralyzation"));
         saves.add(new Save("breath weapon"));

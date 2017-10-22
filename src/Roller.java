@@ -27,8 +27,14 @@ public class Roller {
         }
     }
 
-    private void setSaves() {
+    private Saves setSaves() {
+        Saves saves = new Saves();
+        switch (character.pClass) {
+            case ("Fighter") : {
+                saves.add(new Save("paralyze", 16));
 
+            }
+        }
     }
 
     public void rollClass() {
