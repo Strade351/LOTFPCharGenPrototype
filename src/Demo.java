@@ -2,8 +2,11 @@ public class Demo {
     public static void main(String[] args) {
         Character character = new Character();
         Roller roller = new Roller(character);
-        roller.setClass();
+        roller.rollClass();
+        roller.rollSex();
         roller.rollAttributes();
+        roller.rollHP();
         character = roller.getCharacter();
+        System.out.println(character.toString());
     }
 }

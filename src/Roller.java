@@ -28,16 +28,22 @@ public class Roller {
     }
 
     public void rollClass() {
-        this.character.classes = setClass();
+        character.classes = setClass();
     }
 
     public void rollAttributes() {
-        character.getAttributes().strength.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        character.getAttributes().dexterity.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        character.getAttributes().constitution.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        character.getAttributes().intelligence.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        character.getAttributes().wisdom.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
-        character.getAttributes().charisma.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        Attributes attributes = new Attributes();
+        attributes.strength.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.dexterity.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.constitution.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.intelligence.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.wisdom.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.charisma.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
+        attributes.createModifiers();
+        if (attributes.modifiersSum() >= 0) {
+            character.setAttributes(attributes);
+        }
+        else rollAttributes();
     }
 
     public void rollSex() {
@@ -51,30 +57,49 @@ public class Roller {
     public void rollHP() {
         switch (character.classes) {
             case WARRIOR: {
-                if ((dice.rollD8() + character.getAttributes().constitution.getModifier()) > 8) {
-                    character.setHp(dice.rollD8() + character.getAttributes().constitution.getModifier());
-                }
-                else character.setHp(8);
+                int result = dice.rollD8() + character.getAttributes().constitution.getModifier();
+                if (result > 8) {
+                    character.setHp(result);
+                } else character.setHp(8);
             }
             case ELF: {
-                if ((dice.rollD6() + character.getAttributes().constitution.getModifier()) > 4) {
-                    character.setHp(dice.rollD6()+ character.getAttributes().constitution.getModifier());
-                }
-                else character.setHp(4);
+                int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
+                if (result > 4) {
+                    character.setHp(result);
+                } else character.setHp(4);
             }
             case DWARF: {
-                if ((dice.rollD8() + character.getAttributes().constitution.getModifier() > 6)) {
-                    character.setHp(dice.rollD8()+ character.getAttributes().constitution.getModifier());
-                }
-                else character.setHp(6);
+                int result = dice.rollD8() + character.getAttributes().constitution.getModifier();
+                if (result > 6) {
+                    character.setHp(result);
+                } else character.setHp(6);
             }
             case CLIRIC: {
-                if (dice.rollD6()+ character.getAttributes().constitution.getModifier() > 4) {
-
-                }
-                else character.setHp(4);
+                int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
+                if (result > 4) {
+                    character.setHp(result);
+                } else character.setHp(4);
+            }
+            case HAFFLING: {
+                int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
+                if (result > 4) {
+                    character.setHp(result);
+                } else character.setHp(4);
+            }
+            case MAGICUSER: {
+                int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
+                if (result > 3) {
+                    character.setHp(result);
+                } else character.setHp(3);
+            }
+            case SPECIALIST: {
+                int result = dice.rollD6() + character.getAttributes().constitution.getModifier();
+                if (result > 4) {
+                    character.setHp(result);
+                } else character.setHp(4);
             }
         }
+
     }
 
     public Character getCharacter() {

@@ -13,10 +13,7 @@ public class Character {
 
     Classes classes;
 
-
-
-
-    private Attributes attributes;
+    Attributes attributes;
 
     private String sex;
 
@@ -34,6 +31,8 @@ public class Character {
     Character() {
 
     }
+
+
 
     public Attributes getAttributes() {
         return attributes;
@@ -141,5 +140,11 @@ public class Character {
 
     public void setSilver(int silver) {
         this.silver = silver;
+    }
+
+    @Override
+    public String toString() {
+        String result =  this.classes.toString() + "\n" + this.attributes.toString() + "\n HP: " + this.hp;
+        return result;
     }
 }

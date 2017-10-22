@@ -1,14 +1,13 @@
 public class Attribute {
     String name;
     int count;
-
     private int modifier;
 
     Attribute(String name) {
         this.name = name;
     }
 
-    public void createModifiers() {
+    public void createModifier() {
         if (count == 3)
             modifier = -3;
         if (count > 3 && count < 6)
