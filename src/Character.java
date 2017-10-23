@@ -21,11 +21,23 @@ public class Character {
 
     private int hp, ac;
 
-
-
     private int basicbonus, meleebonus, rangedbonus;
 
-    private int opendoors, search, stealth, bushcraft, languages, tinker, architecture, sof, climb;
+
+
+    private Skill opendoors = new Skill("opendoors");
+    private Skill search = new Skill("search");
+    private Skill stealth = new Skill("stealth");
+    private Skill buchcraft = new Skill("buchcraft");
+    private Skill languages = new Skill("languages");
+    private Skill tinker = new Skill("tinker");
+    private Skill architecture = new Skill("architecture");
+    private Skill sof = new Skill("sleight of hand");
+    private Skill climb = new Skill("climb");
+
+
+
+    private Skill sneakattack = new Skill("sneakattack");
 
     private ArrayList spells;
 
@@ -124,6 +136,11 @@ public class Character {
         this.magic.setCount(magic);
     }
 
+    public void setSkills(int opendoors, int search, int stealth, int buchcraft, int languages, int tinker,
+                          int architecture, int sof, int climb) {
+
+    }
+
     public int getHp() {
         return hp;
     }
@@ -162,6 +179,93 @@ public class Character {
 
     public void setSilver(int silver) {
         this.silver = silver;
+    }
+
+    public Skill getOpendoors() {
+        return opendoors;
+    }
+
+    public void setOpendoors(Skill opendoors) {
+        this.opendoors = opendoors;
+    }
+
+    public Skill getSearch() {
+        return search;
+    }
+
+    public Skill getSneakattack() {
+        return sneakattack;
+    }
+
+    public void setSneakattack(int count) {
+        this.sneakattack.count = count;
+    }
+    public void setSearch(int count) {
+        this.search.count = count;
+    }
+
+    public Skill getStealth() {
+        return stealth;
+    }
+
+    public void setStealth(int count) {
+        this.stealth.count = count;
+    }
+
+    public Skill getBuchcraft() {
+        return buchcraft;
+    }
+
+    public void setBuchcraft(Skill buchcraft) {
+        this.buchcraft = buchcraft;
+    }
+
+    public Skill getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(Skill languages) {
+        this.languages = languages;
+    }
+
+    public Skill getTinker() {
+        return tinker;
+    }
+
+    public void setTinker(int count) {
+        this.tinker.count = count;
+    }
+
+    public Skill getArchitecture() {
+        return architecture;
+    }
+
+    public void setArchitecture(Skill architecture) {
+        this.architecture = architecture;
+    }
+
+    public Skill getSof() {
+        return sof;
+    }
+
+    public void setSof(int count) {
+        this.sof.count = count;
+    }
+
+    public Skill getClimb() {
+        return climb;
+    }
+
+    public void setClimb(Skill climb) {
+        this.climb = climb;
+    }
+
+    public ArrayList getSpells() {
+        return spells;
+    }
+
+    public void setSpells(ArrayList spells) {
+        this.spells = spells;
     }
 
     String savesToString() {

@@ -135,6 +135,26 @@ public class Roller {
         }
     }
 
+    public void setSkills() {
+        character.setSkills(1 + character.getAttributes().strength.getModifier(), 1, 1,
+                1, 1 + character.getAttributes().strength.getModifier(), 1, 1, 1, 1);
+        character.setSneakattack(0);
+        switch (character.pClass) {
+            case ("Specialist") : {
+                int ran = r.nextInt(1);
+                    if (ran == 1) {
+                        ran = r.nextInt(3);
+                        if (ran == 0) {
+                            character.setStealth(character.getStealth().count + 4);
+                        }
+                        if (ran == 1) {
+                            character.setSof(character.getSof().count + 4);
+                        }
+                    }
+            }
+        }
+    }
+
     public void setAB() {
         if (character.pClass.equals("Fighter"))
             character.setBasicbonus(2);
