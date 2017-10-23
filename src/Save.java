@@ -21,4 +21,9 @@ public class Save {
     public void setCount(int count) {
         this.count = count;
     }
+
+    @Override
+    public String toString() {
+        return name + " " + count + "\n";
+    }
 }

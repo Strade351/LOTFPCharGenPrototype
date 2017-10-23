@@ -6,6 +6,7 @@ public class Demo {
         roller.rollSex();
         roller.rollAttributes();
         roller.rollHP();
+        roller.setSaves();
         character = roller.getCharacter();
         System.out.println(character.toString());
     }

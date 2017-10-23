@@ -1,5 +1,5 @@
 public enum Classes {
-    MAGICUSER("Magic-User"), WARRIOR("Fighter"), SPECIALIST("Specialist"), CLIRIC("Cliric"), DWARF("Dwarf"),
+    MAGICUSER("Magic-User"), WARRIOR("Fighter"), SPECIALIST("Specialist"), CLIRIC("Cleric"), DWARF("Dwarf"),
     ELF("Elf"), HAFFLING("Halfling");
 
     private String name;

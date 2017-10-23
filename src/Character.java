@@ -26,14 +26,56 @@ public class Character {
 
     private ArrayList spells;
 
-
-
-    private Saves saves;
+    private Save paralyzation = new Save("paralyzation");
+    private Save magicaldevices = new Save("magical devices");
+    private Save poison = new Save("poison");
+    private Save breathweapon = new Save("breath weapon");
+    private Save magic = new Save("magic");
 
     private int silver;
 
     Character() {
 
+    }
+
+    public Save getParalyzation() {
+        return paralyzation;
+    }
+
+    public void setParalyzation(Save paralyzation) {
+        this.paralyzation = paralyzation;
+    }
+
+    public Save getMagicaldevices() {
+        return magicaldevices;
+    }
+
+    public void setMagicaldevices(Save magicaldevices) {
+        this.magicaldevices = magicaldevices;
+    }
+
+    public Save getPoison() {
+        return poison;
+    }
+
+    public void setPoison(Save poison) {
+        this.poison = poison;
+    }
+
+    public Save getBreathweapon() {
+        return breathweapon;
+    }
+
+    public void setBreathweapon(Save breathweapon) {
+        this.breathweapon = breathweapon;
+    }
+
+    public Save getMagic() {
+        return magic;
+    }
+
+    public void setMagic(Save magic) {
+        this.magic = magic;
     }
 
     public Attributes getAttributes() {
@@ -64,12 +106,12 @@ public class Character {
         this.sex = sex;
     }
 
-    public Saves getSaves() {
-        return saves;
-    }
-
-    public void setSaves(Saves saves) {
-        this.saves = saves;
+    public void setSaves(int paralyzation, int poison, int breathweapon, int magicaldevices, int magic) {
+        this.poison.setCount(poison);
+        this.magicaldevices.setCount(magicaldevices);
+        this.paralyzation.setCount(paralyzation);
+        this.breathweapon.setCount(breathweapon);
+        this.magic.setCount(magic);
     }
 
     public int getHp() {
@@ -112,9 +154,13 @@ public class Character {
         this.silver = silver;
     }
 
+    String savesToString() {
+        return paralyzation.toString() + poison.toString() + breathweapon.toString() + magicaldevices.toString() + magic.toString();
+    }
+
     @Override
     public String toString() {
-        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp;
+        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString();
         return result;
     }
 }
