@@ -20,7 +20,10 @@ public class Character {
     private String sex;
 
     private int hp, ac;
-    private int meleebonus, rangedbonus;
+
+
+
+    private int basicbonus, meleebonus, rangedbonus;
 
     private int opendoors, search, stealth, bushcraft, languages, tinker, architecture, sof, climb;
 
@@ -66,6 +69,13 @@ public class Character {
         return breathweapon;
     }
 
+    public int getBasicbonus() {
+        return basicbonus;
+    }
+
+    public void setBasicbonus(int basicbonus) {
+        this.basicbonus = basicbonus;
+    }
     public void setBreathweapon(Save breathweapon) {
         this.breathweapon = breathweapon;
     }
@@ -158,9 +168,13 @@ public class Character {
         return paralyzation.toString() + poison.toString() + breathweapon.toString() + magicaldevices.toString() + magic.toString();
     }
 
+    String ABToString() {
+        return "AB:" + basicbonus + "/" + meleebonus + "/" + rangedbonus;
+    }
+
     @Override
     public String toString() {
-        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString();
+        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString() + "\n" + ABToString();
         return result;
     }
 }

@@ -135,6 +135,16 @@ public class Roller {
         }
     }
 
+    public void setAB() {
+        if (character.pClass.equals("Fighter"))
+            character.setBasicbonus(2);
+        else {
+            character.setBasicbonus(1);
+        }
+        character.setMeleebonus(character.getBasicbonus() + character.getAttributes().strength.getModifier());
+        character.setRangedbonus(character.getBasicbonus() + character.getAttributes().dexterity.getModifier());
+    }
+
     public Character getCharacter() {
         return this.character;
     }

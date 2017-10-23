@@ -7,6 +7,7 @@ public class Demo {
         roller.rollAttributes();
         roller.rollHP();
         roller.setSaves();
+        roller.setAB();
         character = roller.getCharacter();
         System.out.println(character.toString());
     }
