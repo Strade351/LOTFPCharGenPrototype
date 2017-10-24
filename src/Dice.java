@@ -15,4 +15,8 @@ public class Dice {
     int rollD8() {
         return 1 + r.nextInt(8);
     }
+
+    int rollD10() {
+        return 1 + r.nextInt(10);
+    }
 }

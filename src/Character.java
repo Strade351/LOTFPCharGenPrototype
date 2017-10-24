@@ -138,7 +138,15 @@ public class Character {
 
     public void setSkills(int opendoors, int search, int stealth, int buchcraft, int languages, int tinker,
                           int architecture, int sof, int climb) {
-
+        this.opendoors.count = opendoors;
+        this.search.count = search;
+        this.stealth.count = stealth;
+        this.buchcraft.count = buchcraft;
+        this.languages.count = languages;
+        this.tinker.count = tinker;
+        this.architecture.count = architecture;
+        this.sof.count = sof;
+        this.climb.count = climb;
     }
 
     public int getHp() {
@@ -185,8 +193,8 @@ public class Character {
         return opendoors;
     }
 
-    public void setOpendoors(Skill opendoors) {
-        this.opendoors = opendoors;
+    public void setOpendoors(int count) {
+        this.opendoors.count = count;
     }
 
     public Skill getSearch() {
@@ -216,8 +224,8 @@ public class Character {
         return buchcraft;
     }
 
-    public void setBuchcraft(Skill buchcraft) {
-        this.buchcraft = buchcraft;
+    public void setBuchcraft(int buchcraft) {
+        this.buchcraft.count = buchcraft;
     }
 
     public Skill getLanguages() {
@@ -240,8 +248,8 @@ public class Character {
         return architecture;
     }
 
-    public void setArchitecture(Skill architecture) {
-        this.architecture = architecture;
+    public void setArchitecture(int count) {
+        this.architecture.count = count;
     }
 
     public Skill getSof() {
@@ -256,8 +264,8 @@ public class Character {
         return climb;
     }
 
-    public void setClimb(Skill climb) {
-        this.climb = climb;
+    public void setClimb(int count) {
+        this.climb.count = count;
     }
 
     public ArrayList getSpells() {
@@ -266,6 +274,15 @@ public class Character {
 
     public void setSpells(ArrayList spells) {
         this.spells = spells;
+    }
+
+    String skillsToString() {
+        String skills = opendoors.toString() + search.toString() + stealth.toString() + buchcraft.toString() +
+                languages.toString() + tinker.toString() + architecture.toString() + sof.toString() + climb.toString();
+        if (this.pClass.equals("Specialist")) {
+            skills = skills + sneakattack.toString();
+        }
+        return skills;
     }
 
     String savesToString() {
@@ -278,7 +295,8 @@ public class Character {
 
     @Override
     public String toString() {
-        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString() + "\n" + ABToString();
+        String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString() +
+                "\n" + ABToString() + "\n" + skillsToString();
         return result;
     }
 }

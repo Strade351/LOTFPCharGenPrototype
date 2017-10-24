@@ -68,6 +68,8 @@ public class Roller {
         attributes.wisdom.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
         attributes.charisma.count = dice.rollD6() + dice.rollD6() + dice.rollD6();
         attributes.createModifiers();
+        if (character.pClass.equals("Dwarf"))
+            attributes.constitution.setModifier(attributes.constitution.getModifier() + 1);
         if (attributes.modifiersSum() >= 0) {
             return attributes;
         }
@@ -99,7 +101,7 @@ public class Roller {
             } break;
 
             case "Dwarf": {
-                int result = dice.rollD8() + character.getAttributes().constitution.getModifier();
+                int result = dice.rollD10() + character.getAttributes().constitution.getModifier();
                 if (result > 6) {
                     character.setHp(result);
                 } else character.setHp(6);
@@ -137,21 +139,58 @@ public class Roller {
 
     public void setSkills() {
         character.setSkills(1 + character.getAttributes().strength.getModifier(), 1, 1,
-                1, 1 + character.getAttributes().strength.getModifier(), 1, 1, 1, 1);
+                1, 1 + character.getAttributes().intelligence.getModifier(), 1, 1, 1, 1);
         character.setSneakattack(0);
         switch (character.pClass) {
             case ("Specialist") : {
-                int ran = r.nextInt(1);
-                    if (ran == 1) {
-                        ran = r.nextInt(3);
-                        if (ran == 0) {
-                            character.setStealth(character.getStealth().count + 4);
-                        }
-                        if (ran == 1) {
-                            character.setSof(character.getSof().count + 4);
-                        }
-                    }
-            }
+                int ran = r.nextInt(7);
+                switch (ran) {
+                    case (0) : {
+                        character.setStealth(character.getStealth().count + 2);
+                        character.setSneakattack(2);
+                    } break;
+                    case 1 : {
+                        character.setSearch(character.getSearch().count + 2);
+                        character.setTinker(character.getTinker().count + 2);
+                    } break;
+                    case 2 : {
+                        character.setClimb(character.getClimb().count + 2);
+                        character.setOpendoors(character.getOpendoors().count + 1);
+                        character.setSearch(character.getSearch().count + 1);
+                    } break;
+                    case 3 : {
+                        character.setStealth(character.getStealth().count + 1);
+                        character.setClimb(character.getClimb().count + 1);
+                        character.setSearch(character.getSearch().count + 1);
+                        character.setSneakattack(1);
+                    } break;
+                    case 4 : {
+                        character.setSneakattack(3);
+                        character.setStealth(character.getStealth().count + 1);
+                    } break;
+                    case 5 : {
+                        character.setSearch(character.getSearch().count + 4);
+                    } break;
+                    case 6 : {
+                        character.setTinker(character.getTinker().count + 4);
+                    } break;
+                    case 7 : {
+                        character.setArchitecture(character.getArchitecture().count + 1);
+                        character.setOpendoors(character.getOpendoors().count + 2);
+                        character.setTinker(character.getTinker().count + 1);
+                    } break;
+                }
+            } break;
+            case ("Dwarf") : {
+                character.setArchitecture(3);
+            } break;
+            case ("Elf") : {
+                character.setSearch(2);
+            } break;
+            case ("Halfling") : {
+                character.setStealth(5);
+                character.setBuchcraft(3);
+            } break;
         }
     }
 
