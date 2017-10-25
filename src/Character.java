@@ -34,9 +34,6 @@ public class Character {
     private Skill architecture = new Skill("architecture");
     private Skill sof = new Skill("sleight of hand");
     private Skill climb = new Skill("climb");
-
-
-
     private Skill sneakattack = new Skill("sneakattack");
 
     boolean isMagic;
