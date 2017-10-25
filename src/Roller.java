@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -32,7 +33,7 @@ public class Roller {
             case ("Fighter") : {
                 character.setSaves(14, 12, 15, 13, 16);
             } break;
-            case ("Cleric") : {
+            case ("Cliric") : {
                 character.setSaves(14, 11, 16, 12, 15);
             } break;
             case ("Magic-User") : {
@@ -56,6 +57,9 @@ public class Roller {
     public void rollClass() {
         character.pClass = setClass().toString();
         character.classes = setClass();
+        if (character.pClass.equals("Magic-User") || character.pClass.equals("Cliric") || character.pClass.equals("Elf")) {
+            character.isMagic = true;
+        }
         character.attributes = rollAttributes();
     }
 
@@ -202,6 +206,52 @@ public class Roller {
         }
         character.setMeleebonus(character.getBasicbonus() + character.getAttributes().strength.getModifier());
         character.setRangedbonus(character.getBasicbonus() + character.getAttributes().dexterity.getModifier());
+    }
+
+
+
+    private void setRandomSpell(ArrayList spells, MagicUserSpells magicUserSpells []) {
+        int randomspell = r.nextInt(19);
+        if (!spells.contains(magicUserSpells[randomspell])) {
+            spells.add(magicUserSpells[randomspell]);
+        }
+        else
+            setRandomSpell(spells, magicUserSpells);
+    }
+
+
+    public void setSpells() {
+        if (character.isMagic) {
+            if (character.pClass.equals("Cliric")) {
+                ArrayList<CliricSpells> spells = new ArrayList<>();
+                spells.add(CliricSpells.BLESS);
+                spells.add(CliricSpells.COMMAND);
+                spells.add(CliricSpells.CURE_LIGHT_WOUNDS);
+                spells.add(CliricSpells.DETECT_EVIL);
+                spells.add(CliricSpells.INVISIBILITY_TO_UNDEAD);
+                spells.add(CliricSpells.PROTECTION_FROM_EVIL);
+                spells.add(CliricSpells.REMOVE_FEAR);
+                spells.add(CliricSpells.SANCTUARY);
+                spells.add(CliricSpells.TURN_UNDEAD);
+                character.setSpells(spells);
+            }
+
+            if (character.pClass.equals("Magic-User")) {
+                ArrayList<MagicUserSpells> spells = new ArrayList<>();
+                spells.add(MagicUserSpells.READ_MAGIC);
+                MagicUserSpells[] magicUserSpells = MagicUserSpells.values();
+                for (int i = 0; i < 3; i++) {
+                   setRandomSpell(spells, magicUserSpells);
+                }
+                character.setSpells(spells);
+            }
+
+            if (character.pClass.equals("Elf")) {
+                ArrayList<MagicUserSpells> spells = new ArrayList<>();
+                spells.add(MagicUserSpells.READ_MAGIC);
+                character.setSpells(spells);
+            }
+        }
     }
 
     public Character getCharacter() {

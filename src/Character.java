@@ -39,6 +39,8 @@ public class Character {
 
     private Skill sneakattack = new Skill("sneakattack");
 
+    boolean isMagic;
+
     private ArrayList spells;
 
     private Save paralyzation = new Save("paralyzation");
@@ -88,6 +90,7 @@ public class Character {
     public void setBasicbonus(int basicbonus) {
         this.basicbonus = basicbonus;
     }
+
     public void setBreathweapon(Save breathweapon) {
         this.breathweapon = breathweapon;
     }
@@ -150,7 +153,7 @@ public class Character {
     }
 
     public int getHp() {
-        return hp;
+        return       hp;
     }
 
     public void setHp(int hp) {
@@ -208,6 +211,7 @@ public class Character {
     public void setSneakattack(int count) {
         this.sneakattack.count = count;
     }
+
     public void setSearch(int count) {
         this.search.count = count;
     }
@@ -276,6 +280,19 @@ public class Character {
         this.spells = spells;
     }
 
+    String spellsToString() {
+        if (this.isMagic)  {
+            String strings = "";
+            for (Object spell :
+                    spells) {
+                strings += spell.toString();
+            }
+            return "Spells:\n" + strings;
+        }
+        else
+            return " ";
+    }
+
     String skillsToString() {
         String skills = opendoors.toString() + search.toString() + stealth.toString() + buchcraft.toString() +
                 languages.toString() + tinker.toString() + architecture.toString() + sof.toString() + climb.toString();
@@ -296,7 +313,7 @@ public class Character {
     @Override
     public String toString() {
         String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString() +
-                "\n" + ABToString() + "\n" + skillsToString();
+                "\n" + ABToString() + "\n" + skillsToString() + "\n" + spellsToString();
         return result;
     }
 }
