@@ -10,6 +10,7 @@ public class Demo {
         roller.setAB();
         roller.setSkills();
         roller.setSpells();
+        roller.rollSilver();
         character = roller.getCharacter();
         System.out.println(character.toString());
     }

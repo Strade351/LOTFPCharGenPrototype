@@ -219,6 +219,10 @@ public class Roller {
             setRandomSpell(spells, magicUserSpells);
     }
 
+    public void rollSilver() {
+        character.setSilver((dice.rollD6() + dice.rollD6() + dice.rollD6()) * 10);
+    }
+
 
     public void setSpells() {
         if (character.isMagic) {

@@ -23,8 +23,6 @@ public class Character {
 
     private int basicbonus, meleebonus, rangedbonus;
 
-
-
     private Skill opendoors = new Skill("opendoors");
     private Skill search = new Skill("search");
     private Skill stealth = new Skill("stealth");
@@ -40,6 +38,9 @@ public class Character {
 
     private ArrayList spells;
 
+    private ArrayList equipment;
+
+
     private Save paralyzation = new Save("paralyzation");
     private Save magicaldevices = new Save("magical devices");
     private Save poison = new Save("poison");
@@ -48,7 +49,8 @@ public class Character {
 
     private int silver;
 
-    Character() {
+    Character()
+    {
 
     }
 
