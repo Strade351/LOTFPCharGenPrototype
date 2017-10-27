@@ -1,0 +1,30 @@
+{
+  "equipment": {
+    "armor": [
+      {"name": "leather", "cost": 25, "ac": 14},
+      {"name": "chain", "cost": 100, "ac": 16}
+    ],
+    "melee_weapons" : [
+      {"name": "cestus", "cost": 10, "damage":"1d3", "description" : "Users suffer a –2 penalty to hit any opponent with an unadjustedAC of 15 or better."},
+      {"name": "garotte", "cost": 5, "damage":"1d6", "description" : "Use of this weapon requires an attack from surprise, or a successful grapple. If a hit is scored, the target is considered grappled and will take 1d6 damage per round."},
+      {"name": "lance", "cost": 30, "damage":"1d10", "description" : "Lance: This weapon can be used one-handed if charging on horseback. Otherwise, it is effectively a polearm (pike)."},
+      {"name": "polearm", "cost": 30, "damage":"1d8", "description" : "This two-handed weapon can be used to attack from the second rank, can be used to receive a charge, and receives a +1 bonus to hit opponentswith an unadjusted AC of 16 or better."},
+      {"name": "rapier", "cost": 15, "damage":"1d8", "description" : "This one handed weapon suffers a –2 penalty to hit opponents with an unadjusted AC of 15 or better"},
+      {"name": "spier", "cost": 3, "damage":"1d6", "description" : "This can be used to attack from the second rank, and can be used to receive a charge"},
+      {"name": "staff", "cost": 3, "damage":"1d4", "description" : " This must be wielded with two hands"},
+      {"name": "great sword", "cost": 50, "damage":"1d10", "description" : "This weapons must be wielded with two hands"},
+      {"name": "great maul", "cost": 50, "damage":"1d10", "description" : "This weapons must be wielded with two hands"},
+      {"name": "great axe", "cost": 50, "damage":"1d10", "description" : "This weapons must be wielded with two hands"},
+      {"name": "long sword", "cost": 20, "damage":"1d8", "description" : ""},
+      {"name": "battle axe", "cost": 20, "damage":"1d8", "description" : ""},
+      {"name": "mace", "cost": 20, "damage":"1d8", "description" : ""},
+      {"name": "short sword", "cost": 10, "damage":"1d6", "description" : ""},
+      {"name": "hand axe", "cost": 10, "damage":"1d6", "description" : ""},
+      {"name": "dagger", "cost": 5, "damage":"1d4", "description" : "Suffer a –2 penalty to hit opponents with an unadjusted AC of 15 or better"},
+      {"name": "club", "cost": 5, "damage":"1d4", "description" : "Suffer a –2 penalty to hit opponents with an unadjusted AC of 15 or better"},
+      {"name": "whip", "cost": 5, "damage":"1d4", "description" : "This weapon is ineffective against targets with unadjusted AC 14 or better, but allows mêlée attacks on opponents up to 10' away."}
+    ],
+    "ranged_weapons" : [
+      {"name": "sling", "cost": 1, "damage":"1d4", "description" : "", "S": 50}
+    ]
+  }}
