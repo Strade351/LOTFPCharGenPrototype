@@ -10,7 +10,7 @@
       {"name": "lance", "cost": 30, "damage":"1d10", "description" : "Lance: This weapon can be used one-handed if charging on horseback. Otherwise, it is effectively a polearm (pike)."},
       {"name": "polearm", "cost": 30, "damage":"1d8", "description" : "This two-handed weapon can be used to attack from the second rank, can be used to receive a charge, and receives a +1 bonus to hit opponentswith an unadjusted AC of 16 or better."},
       {"name": "rapier", "cost": 15, "damage":"1d8", "description" : "This one handed weapon suffers a –2 penalty to hit opponents with an unadjusted AC of 15 or better"},
-      {"name": "spier", "cost": 3, "damage":"1d6", "description" : "This can be used to attack from the second rank, and can be used to receive a charge"},
+      {"name": "spear", "cost": 3, "damage":"1d6", "description" : "This can be used to attack from the second rank, and can be used to receive a charge"},
       {"name": "staff", "cost": 3, "damage":"1d4", "description" : " This must be wielded with two hands"},
       {"name": "great sword", "cost": 50, "damage":"1d10", "description" : "This weapons must be wielded with two hands"},
       {"name": "great maul", "cost": 50, "damage":"1d10", "description" : "This weapons must be wielded with two hands"},
@@ -25,6 +25,28 @@
       {"name": "whip", "cost": 5, "damage":"1d4", "description" : "This weapon is ineffective against targets with unadjusted AC 14 or better, but allows mêlée attacks on opponents up to 10' away."}
     ],
     "ranged_weapons" : [
-      {"name": "sling", "cost": 1, "damage":"1d4", "description" : "", "S": 50}
+      {"name": "sling", "cost": 1, "damage":"1d4", "description" : "Slings fired with stones instead of bullets have half the listed range", "S": 50, "M": 300, "L": 450},
+      {"name": "long bow", "cost": 45, "damage":"1d6", "description" : "", "S": 50, "M": 600, "L": 900},
+      {"name": "short bow", "cost": 25, "damage":"1d6", "description" : "", "S": 50, "M": 300, "L": 450},
+      {"name": "heavy crossbow", "cost": 30, "damage":"1d8", "description" : "", "S": 50, "M": 200, "L": 600},
+      {"name": "light crossbow", "cost": 25, "damage":"1d6", "description" : "", "S": 50, "M": 150, "L": 400},
+      {"name": "spear", "cost": 45, "damage":"1d6", "description" : "", "S": 10, "M": 20, "L": 60}
+    ],
+    "containers" : [
+      {"name": "backpack", "cost": 1},
+      {"name": "barrel", "cost": 1},
+      {"name": "chest", "cost": 1},
+      {"name": "pouch", "cost": 0.1},
+      {"name": "quiver", "cost": 5},
+      {"name": "sack", "cost": 0.2}
+    ],
+    "food" : [
+      {"name": "bottle of wine", "cost": 1},
+      {"name": "standart ration", "cost": 0.5},
+      {"name": "iron ration", "cost": 1}
+    ],
+    "adventure equipment" : [
+      {"name": "bedroll", "cost": 1},
+      {"name": "block and tackle", "cost": 1}
     ]
   }}

@@ -1,0 +1,11 @@
+{"equipmentpacks":[
+  {"class": "fighter", "packs": [
+    {"name":"fpack1", "armor": "chain", "weapons": "long sword", "misc:": "backpack|bedroll|standart ration 5|tobacco| "}
+  ]
+  },
+  {
+    "class": "magic-user", "packs": [
+    {}
+  ]
+  }
+]}
