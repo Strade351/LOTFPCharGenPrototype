@@ -28,5 +28,7 @@ public class ConfigReader {
         System.out.println(classesList);
     }
 
-    void
+    void getPack() {
+
+    }
 }
