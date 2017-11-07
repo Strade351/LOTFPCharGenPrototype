@@ -1,11 +1,11 @@
 {"equipmentpacks":[
   {"class": "fighter", "packs": [
-    {"name":"fpack1", "armor": "chain", "weapons": "long sword", "misc:": "backpack|bedroll|standart ration 5|tobacco|tinderbox|Rope, 50'|waterskin", "cost":140}
+    {"name":"fpack1", "armor": "chain", "weapons": "long sword", "misc:": ["backpack", "bedroll", "standart ration 5", "tobacco", "tinderbox", "rope, 50", "waterskin"], "cost": 140}
   ]
   },
   {
     "class": "magic-user", "packs": [
-    {"name":"mupack1", "armor":"leather", "weapons": "short sword|light crossbow", "misc": "", "cost": 100}
+    {"name":"mupack1", "armor": ["leather"], "weapons": ["short sword", "light crossbow"], "misc": [""], "cost": 100}
   ]
   }
 ]}
