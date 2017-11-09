@@ -28,7 +28,7 @@ public class ConfigReader {
         System.out.println(classesList);
     }
 
-    void getPack() {
+    void getPack(JsonElement pack) {
 
     }
 }

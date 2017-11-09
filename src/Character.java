@@ -21,6 +21,8 @@ public class Character {
 
     private int hp, ac;
 
+    Equipment equipment;
+
     private int basicbonus, meleebonus, rangedbonus;
 
     private Skill opendoors = new Skill("opendoors");
@@ -37,9 +39,6 @@ public class Character {
     boolean isMagic;
 
     private ArrayList spells;
-
-    private ArrayList equipment;
-
 
     private Save paralyzation = new Save("paralyzation");
     private Save magicaldevices = new Save("magical devices");

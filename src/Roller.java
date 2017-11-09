@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -6,12 +7,13 @@ import java.util.Random;
  */
 
 public class Roller {
+    ConfigReader configReader = new ConfigReader();
     Random r = new Random();
     Dice dice = new Dice();
 
     Character character;
 
-    Roller(Character character) {
+    Roller(Character character) throws IOException {
         this.character = character;
     }
 
@@ -223,6 +225,9 @@ public class Roller {
         character.setSilver((dice.rollD6() + dice.rollD6() + dice.rollD6()) * 10);
     }
 
+    public void rollEquipment() {
+
+    }
 
     public void setSpells() {
         if (character.isMagic) {
