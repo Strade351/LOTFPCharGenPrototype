@@ -7,6 +7,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ConfigReader {
+    JsonArray classesList;
+    Gson gson = new Gson();
+    Equipment equipment;
 
     ConfigReader() throws IOException {
         File equipmentpacks = new File("equipmentpacks.json");
@@ -21,14 +24,27 @@ public class ConfigReader {
         JsonElement jsonElement = jsonParser.parse(value);
         System.out.println(jsonElement);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        JsonArray classesList = jsonObject.getAsJsonArray("equipmentpacks");
-        for (JsonElement jsonelement : classesList) {
-            jsonElement.getAsJsonObject();
-        }
+        classesList = jsonObject.getAsJsonArray("equipmentpacks");
+        getPack("fighter", 0);
         System.out.println(classesList);
     }
 
-    void getPack(JsonElement pack) {
+    void getPack(String pclass, int packnumber) {
+        JsonElement pack;
+        for (JsonElement jsonelement : classesList) {
+            String tempclassname = jsonelement.getAsJsonObject().get("class").getAsString();
+            if (tempclassname.equals(pclass)) {
+                JsonArray packsList = jsonelement.getAsJsonObject().get("packs").getAsJsonArray();
 
+                pack = packsList.get(packnumber);
+                equipment = gson.fromJson(pack, Equipment.class);
+                System.out.println(this.equipment.toString());
+        }
+            else
+                System.out.println("no");
+        }
     }
 }
+
+
+////"backpack", "bedroll", "standart ration 5", "tobacco", "tinderbox", "rope, 50", "waterskin"
