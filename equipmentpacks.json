@@ -1,6 +1,6 @@
 {"equipmentpacks":[
   {"class": "fighter", "packs": [
-    {"name":"fpack1", "ac": 16, "armor": ["chain"], "weapons": ["long sword", "wefwef", "wefwefwef"], "misc:": ["long sword", "wefwef", "wefwefwef"], "cost": 140}
+    {"name":"fpack1", "ac": 16, "armor": ["chain"], "weapons": ["long sword"], "miscs": ["backpack", "bedroll", "standart ration 5", "tobacco", "tinderbox", "rope, 50", "waterskin"], "cost": 140}
   ]
   },
   {

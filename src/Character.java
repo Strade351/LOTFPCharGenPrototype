@@ -270,6 +270,9 @@ public class Character {
         this.climb.count = count;
     }
 
+    public Equipment getEquipment() {
+        return equipment;
+    }
     public ArrayList getSpells() {
         return spells;
     }
@@ -291,6 +294,10 @@ public class Character {
             return " ";
     }
 
+    String silverToString() {
+        return "you have " + this.getSilver() + "cp";
+    }
+
     String skillsToString() {
         String skills = opendoors.toString() + search.toString() + stealth.toString() + buchcraft.toString() +
                 languages.toString() + tinker.toString() + architecture.toString() + sof.toString() + climb.toString();
@@ -308,10 +315,16 @@ public class Character {
         return "AB:" + basicbonus + "/" + meleebonus + "/" + rangedbonus;
     }
 
+    String ACToSting() {
+        return "AC: " + ac;
+    }
+
     @Override
     public String toString() {
         String result =  this.pClass + "\n" + this.attributes.toString() + "\n HP: " + this.hp + "\n" + savesToString() +
-                "\n" + ABToString() + "\n" + skillsToString() + "\n" + spellsToString();
+                "\n" + ABToString() + "\n" + skillsToString() + "\n" + spellsToString() + "\n" + ACToSting() + "\n" +
+                equipment.toString() + "\n"
+                + silverToString();
         return result;
     }
 }

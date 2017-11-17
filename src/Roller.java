@@ -210,7 +210,9 @@ public class Roller {
         character.setRangedbonus(character.getBasicbonus() + character.getAttributes().dexterity.getModifier());
     }
 
-
+    public void setAC() {
+        character.setAc(character.getAttributes().dexterity.getModifier() + character.equipment.ac);
+    }
 
     private void setRandomSpell(ArrayList spells, MagicUserSpells magicUserSpells []) {
         int randomspell = r.nextInt(19);
@@ -225,8 +227,17 @@ public class Roller {
         character.setSilver((dice.rollD6() + dice.rollD6() + dice.rollD6()) * 10);
     }
 
+    /**
+     * in this method we also calculate silver end value
+     */
     public void rollEquipment() {
-
+        character.equipment = configReader.getPack(character.pClass.toLowerCase());
+        int tempsilver = character.getSilver() - character.equipment.cost;
+        if (tempsilver < 0) {
+            character.setSilver(r.nextInt(10));
+        }
+        else
+            character.setSilver(tempsilver);
     }
 
     public void setSpells() {

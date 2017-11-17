@@ -5,6 +5,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Random;
 
 public class ConfigReader {
     JsonArray classesList;
@@ -19,32 +20,31 @@ public class ConfigReader {
                 lines) {
             value += line;
         }
-        System.out.println(value);
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(value);
-        System.out.println(jsonElement);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         classesList = jsonObject.getAsJsonArray("equipmentpacks");
-        getPack("fighter", 0);
-        System.out.println(classesList);
     }
 
-    void getPack(String pclass, int packnumber) {
+    /**
+     * @param pclass
+     * function return random pack to the variable
+     */
+    Equipment getPack(String pclass) {
+        Random r = new Random();                //create random
         JsonElement pack;
         for (JsonElement jsonelement : classesList) {
-            String tempclassname = jsonelement.getAsJsonObject().get("class").getAsString();
+            String tempclassname = jsonelement.getAsJsonObject().get("class").getAsString();                   //get current class name
             if (tempclassname.equals(pclass)) {
                 JsonArray packsList = jsonelement.getAsJsonObject().get("packs").getAsJsonArray();
-
-                pack = packsList.get(packnumber);
-                equipment = gson.fromJson(pack, Equipment.class);
-                System.out.println(this.equipment.toString());
+                pack = packsList.get(r.nextInt(packsList.size()));                                             //get random pack using size of json array as border
+                equipment = gson.fromJson(pack, Equipment.class);                                              //fill Equipment object fields
+                break;
+            }
         }
-            else
-                System.out.println("no");
-        }
+        return equipment;
     }
 }
 
 
-////"backpack", "bedroll", "standart ration 5", "tobacco", "tinderbox", "rope, 50", "waterskin"
+////
