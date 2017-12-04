@@ -1,8 +1,6 @@
-
-import org.w3c.dom.Attr;
+package functional;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 /**
  * Created by velvetmoor on 19.10.2017.

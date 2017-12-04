@@ -1,3 +1,5 @@
+package functional;
+
 public class Attribute {
     String name;
     int count;

@@ -1,3 +1,5 @@
+package functional;
+
 public enum CliricSpells {
     BLESS("Bless"), COMMAND("Command"), CURE_LIGHT_WOUNDS("Cure Light Wounds"), DETECT_EVIL("Detect Evil"),
     INVISIBILITY_TO_UNDEAD("Invisibility to Undead"), PROTECTION_FROM_EVIL("Protection from Evil"),

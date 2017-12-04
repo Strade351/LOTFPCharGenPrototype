@@ -1,5 +1,6 @@
+package functional;
+
 import com.google.gson.*;
-import com.google.gson.stream.JsonReader;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -30,7 +31,7 @@ public class ConfigReader {
      * @param pclass
      * function return random pack to the variable
      */
-    Equipment getPack(String pclass) {
+    private Equipment getPack(String pclass) {
         Random r = new Random();                //create random
         JsonElement pack;
         for (JsonElement jsonelement : classesList) {
@@ -38,7 +39,7 @@ public class ConfigReader {
             if (tempclassname.equals(pclass)) {
                 JsonArray packsList = jsonelement.getAsJsonObject().get("packs").getAsJsonArray();
                 pack = packsList.get(r.nextInt(packsList.size()));                                             //get random pack using size of json array as border
-                equipment = gson.fromJson(pack, Equipment.class);                                              //fill Equipment object fields
+                equipment = gson.fromJson(pack, Equipment.class);                                              //fill functional.Equipment object fields
                 break;
             }
         }

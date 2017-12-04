@@ -1,3 +1,5 @@
+package functional;
+
 public enum MagicUserSpells {
     DETECT_MAGIC("Detect Magic"), BOOKSPEAK("Bookspeak"), CHARM_PERSON("Charm Person"), COMPREHEND_LANGUAGES("Comprehend Languages"),
     ENLARGE("Enlarge"), FAERIE_FIRE("Faerie Fire"), FEATHER_FALL("Feather Fall"), FLOATING_DISC("Floating Disc"),

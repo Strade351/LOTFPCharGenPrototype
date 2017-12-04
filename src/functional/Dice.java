@@ -1,3 +1,4 @@
+package functional;
 
 import java.util.Random;
 

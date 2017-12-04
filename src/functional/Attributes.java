@@ -1,3 +1,5 @@
+package functional;
+
 import java.util.ArrayList;
 
 public class Attributes extends ArrayList {

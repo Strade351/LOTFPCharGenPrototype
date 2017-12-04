@@ -1,3 +1,5 @@
+package functional;
+
 import java.io.IOException;
 
 public class Demo {
