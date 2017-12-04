@@ -31,7 +31,7 @@ public class ConfigReader {
      * @param pclass
      * function return random pack to the variable
      */
-    private Equipment getPack(String pclass) {
+    protected Equipment getPack(String pclass) {
         Random r = new Random();                //create random
         JsonElement pack;
         for (JsonElement jsonelement : classesList) {
